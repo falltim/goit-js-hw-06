@@ -14,20 +14,26 @@ const images = [
 ];
 
 
-const gallery = document.querySelector('.gallery');
-const elem = document.createElement('elem');
-document.querySelector('head').append(elem);
-gallery.insertAdjacentHTML('beforeend', images.map(image => 
-  `<li class= "item"
-    style="display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;">
-  <img 
-    src = ${image.url} 
-    alt = "${image.alt}" 
-    width = "400" 
-    height="270"
-    >
-    </li>`)
-.join(''));
+const galleryEl = document.querySelector('.gallery');
+
+const makeGalleryItem = ({ url, alt }) => {
+  return `
+    <li class="gallery__item"
+      style =
+      "display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;">
+        <img class="gallery__img" 
+          src="${url}" 
+          alt="${alt}"
+          width = "400" 
+          height="270"
+        >
+    </li>
+  `;
+};
+
+const galleryItems = images.map(image => makeGalleryItem(image));
+
+galleryEl.insertAdjacentHTML('afterbegin', galleryItems.join(''));
