@@ -15,19 +15,19 @@ const images = [
 
 
 const gallery = document.querySelector('.gallery');
-
-const elements = images.map((image) =>
-` <li class = "item"
-  style = "display: inline-flex;
-  align-items : center;
-  justify-content : center;
-  margin-right : 10px; ">
-  < img class="image"
-  src = "${image.src}"
-  alt = "${image.alt}"
-  width = "400"
-  height = "270">
-  </li>
-`);
-
-gallery.insertAdjacentHTML('beforeend', elements.join(''))
+const elem = document.createElement('elem');
+document.querySelector('head').append(elem);
+gallery.insertAdjacentHTML('beforeend', images.map(image => 
+  `<li class= "item"
+    style="display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;">
+  <img 
+    src = ${image.url} 
+    alt = "${image.alt}" 
+    width = "400" 
+    height="270"
+    >
+    </li>`)
+.join(''));

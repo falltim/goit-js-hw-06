@@ -5,6 +5,7 @@ const refs ={
 refs.textEl.style.fontSize = refs.inputEl.value + 'px';
 
 refs.inputEl.addEventListener('change', onInputChange);
-    function onInputChange(event){
-        return refs.textEl.style.fontSize = event.currentTarget.value + 'px';
+    function onInputChange(input){
+        return refs.textEl.style.fontSize = input.currentTarget.value + 'px';
     }
+
