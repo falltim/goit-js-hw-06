@@ -1,14 +1,15 @@
+
+
 const refs = {
-    input: document.querySelector('#name-input'),
-    output: document.querySelector('h1'), 
-}
+    inputName: document.querySelector('#name-input'),
+    outputName: document.querySelector('#name-output'),
+};
 
-refs.input.addEventListener('input', ShowInputText);
+const currentValue = refs.outputName.textContent;
 
-function ShowInputText(event) {
-    if (refs.input.value === '') {
-        refs.output.textContent = 'Hello, Anonymous'; 
-    } else {
-        refs.output.textContent = event.target.value;
+refs.inputName.addEventListener('input', event => {
+    refs.outputName.textContent = event.currentTarget.value;
+    if (!refs.outputName.textContent) {
+    refs.outputName.textContent = currentValue;
     }
-}
+});
